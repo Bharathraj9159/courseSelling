@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <!-- Bootstrap CSS (v5.3.3) -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" />
+  <!-- Bootstrap Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" />
+  <!-- Font Awesome CSS (added for cart icon) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <!-- Google Font for a modern look -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet" />
+  <title>Course || Category</title>
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet" />
+
+  <!-- custom Css -->
+  <link rel="stylesheet" href="assests/css/header.css">
+  <link rel="stylesheet" href="assests/css/category.css">
+
+
+    <!-- Chrome tab icon -->
+  <link rel="icon" type="image/png" href="./assests/img/logo/favicon.png">
+
+
+  <style>
+   
+
+    .orange {
+      color: #ff6f00;
+    }
+
+    .blue {
+      color: #007bff;
+    }
+
+    .related-course-card {
+      cursor: pointer;
+    }
+
+    .navbar-logo {
+      max-height: 100px;
+    }
+
+    .cart-icon {
+      position: relative;
+    }
+
+    .cart-badge {
+      position: absolute;
+      top: -5px;
+      right: -3px;
+      background: red;
+      color: white;
+      border-radius: 50%;
+      padding: 2px 6px;
+      font-size: 12px;
+    }
+
+    .cart-modal-header {
+      border-bottom: none;
+    }
+
+    .cart-item {
+      border-bottom: 1px solid #eee;
+      padding: 10px 0;
+    }
+
+    .cart-item:last-child {
+      border-bottom: none;
+    }
+
+    .cart-item-title {
+      font-weight: 600;
+    }
+
+    .cart-item-price {
+      font-weight: 500;
+      color: #444;
+    }
+
+    .remove-from-cart {
+      white-space: nowrap;
+    }
+
+    /* MEDIA QUERY FOR CART BUTTON BADGE */
+    @media(min-width:320px) and (max-width:339px){
+    .cart-badge {
+      right: 116px;
+    }
+    }
+    @media(min-width:340px) and (max-width:360px){
+    .cart-badge {
+      right: 118px;
+    }
+    }
+    @media(min-width:361px) and (max-width:374px){
+    .cart-badge {
+      right: 123px;
+    }
+    }
+    @media(min-width:375px) and (max-width:390px){
+    .cart-badge {
+      right: 123px;
+    }
+    }
+    @media(min-width:390px) and (max-width:411px){
+    .cart-badge {
+      right: 132px;
+    }
+    }
+    @media(min-width:412px) and (max-width:424px){
+    .cart-badge {
+      right: 143px;
+    }
+    }
+    @media(min-width:425px) and (max-width:539px){
+    .cart-badge {
+      right: 153px;
+    }
+    }
+    @media(min-width:540px) and (max-width:550px){
+    .cart-badge {
+      right: 206px;
+    }
+    }
+    @media(min-width:549px) and (max-width:768px){
+    .cart-badge {
+      right: 320px;
+    }
+    }
+
+    @media(min-width:769px) and (max-width:820px){
+    .cart-badge {
+      right: 340px;
+    }
+    }
+    @media(min-width:821px) and (max-width:853px){
+    .cart-badge {
+      right: 357px;
+    }
+    }
+
+
+  .cart-icon-trigger{
+      right: 10px;
+    }
+    
+  </style>
+
+</head>
+
+<body>
+
+  <header>
+    <div class="custom-navbar light">
+      <nav class="navbar navbar-expand-lg py-3">
+        <div class="container-fluid mx-3">
+          <a class="navbar-brand" href="./index.html">
+            <img src="./assests/img/logo/logo.png" alt="Course Logo" class="navbar-logo">
+          </a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#custom-navbar-menu"
+            aria-controls="custom-navbar-menu" aria-expanded="false" aria-label="Toggle navigation">
+            <span>
+              <span></span>
+            </span>
+          </button>
+          <div class="collapse navbar-collapse" id="custom-navbar-menu">
+            <!-- Desktop search box -->
+            <div class="search-box mx-auto d-none d-lg-block">
+              <form class="d-flex position-relative" role="search">
+                <input class="form-control pe-5" type="search" placeholder="Search courses..." aria-label="Search">
+                <i class="fas fa-search search-icon"></i>
+              </form>
+            </div>
+            <ul class="navbar-nav flex-row flex-lg-row flex-column align-items-center mb-2 mb-lg-0 ms-lg-auto">
+              <li class="nav-item text-center w-100 w-lg-auto">
+                <a class="nav-link" href="./category.html">Courses</a>
+              </li>
+              <li class="nav-item text-center w-100 w-lg-auto">
+                <a class="nav-link" href="#">Digital Products</a>
+              </li>
+              <li class="nav-item text-center w-100 w-lg-auto">
+                <!-- Cart icon with trigger class -->
+                <a class="nav-link cart-icon-trigger cart-icon" href="javascript:void(0);">
+                  <i class="fas fa-shopping-cart"></i>
+                  <span id="cartBadge" class="cart-badge">0</span>
+                </a>
+              </li>
+              <li class="nav-item text-center w-100 w-lg-auto">
+                <a href="./login.html"><button class="btn btn-outline-light px-3 w-100 w-lg-auto">Login</button></a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+      <!-- Mobile search box -->
+      <div class="mobile-search d-lg-none">
+        <div class="container">
+          <div class="search-box">
+            <form class="d-flex position-relative" role="search">
+              <input class="form-control pe-5" type="search" placeholder="Search courses..." aria-label="Search">
+              <i class="fas fa-search search-icon"></i>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <div class="container py-5">
+    <!-- Category Dropdown Button -->
+    <div class="row mb-4">
+      <div class="col-12">
+        <div class="dropdown">
+          <button class="btn btn-primary dropdown-toggle" type="button" id="categoryDropdown" data-bs-toggle="dropdown"
+            aria-expanded="false">
+            Category
+          </button>
+          <ul class="dropdown-menu" aria-labelledby="categoryDropdown">
+            <li>
+              <a class="dropdown-item" href="./business.html">Business &amp; Marketing</a>
+            </li>
+            <li>
+              <a class="dropdown-item" href="./recorded.html">Recorded Course</a>
+            </li>
+            <li>
+              <a class="dropdown-item" href="./upcoming.html">Upcoming Course</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Business & Marketing Division -->
+    <div id="business" class="mb-5">
+      <div class="division-header">
+        <h2>
+          <i class="bi bi-bar-chart-fill text-primary"></i>
+          Business &amp; Marketing
+        </h2>
+        <a href="business.html">View All</a>
+      </div>
+      <hr class="divider" />
+      <div class="row" id="business-cards-container">
+        <!-- Business cards will be generated here -->
+      </div>
+    </div>
+
+    <!-- Recorded Course Division -->
+    <div id="recorded" class="mb-5">
+      <div class="division-header">
+        <h2>
+          <i class="bi bi-play-btn-fill text-warning"></i>
+          Recorded Course
+        </h2>
+        <a href="recorded.html">View All</a>
+      </div>
+      <hr class="divider" />
+      <div class="row" id="recorded-cards-container">
+        <!-- Recorded course cards will be generated here -->
+      </div>
+    </div>
+
+    <!-- Upcoming Course Division -->
+    <div id="upcoming" class="mb-5">
+      <div class="division-header">
+        <h2>
+          <i class="bi bi-calendar-event-fill text-success"></i>
+          Upcoming Course
+        </h2>
+        <a href="upcoming.html">View All</a>
+      </div>
+      <hr class="divider" />
+      <div class="row" id="upcoming-cards-container">
+        <!-- Upcoming course cards will be generated here -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-md-6">
+          <a class="navbar-brand" href="./index.html">
+            <img src="./assests/img/logo/logo.png" alt="Course Logo" class="navbar-logo mb-2">
+          </a>
+          <p class="footer-text">Creating amazing experiences and innovative solutions for our customers worldwide.</p>
+          <div class="social-links">
+            <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+            <a href="#" class="social-link"><i class="fab fa-facebook"></i></a>
+            <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+            <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
+          </div>
+        </div>
+
+        <div class="col-md-6 text-md-end">
+          <ul class="footer-links">
+            <li><a href="./index.html">Home</a></li>
+            <li><a href="#">Privacy</a></li>
+            <li><a href="#">Terms</a></li>
+            <li><a href="./contact.html">Contact Us</a></li>
+            <li><a href="#">Refund policy</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="copyright text-center">
+        © 2024 CompanyName. All rights reserved.
+      </div>
+    </div>
+  </footer>
+
+  <!-- CART MODAL (Bootstrap) -->
+  <div class="modal fade" id="cartModal" tabindex="-1" aria-labelledby="cartModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable"> 
+      <div class="modal-content">
+        <!-- Header -->
+        <div class="modal-header cart-modal-header">
+          <h5 class="modal-title" id="cartModalLabel">Your Cart (<span id="cart-item-count">0</span> items)</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <!-- Body -->
+        <div class="modal-body">
+          <div id="cart-items-container"></div>
+          <hr>
+          <div class="d-flex justify-content-between align-items-center">
+            <span class="fw-bold">Total Amount:</span>
+            <span class="fw-bold" id="cart-total-amount">₹0.00</span>
+          </div>
+        </div>
+        <!-- Footer -->
+        <div class="modal-footer">
+          <a href="category.html" class="btn btn-link">Add More</a>
+          <button class="btn btn-primary" id="checkoutBtn">Checkout</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- JavaScript to Dynamically Generate Course Cards -->
+  <script>
+    // Data object containing courses for each category, using Picsum Photos for dummy images
+    const coursesData = {
+      business: [
+        {
+          titleOrange: "Marketing",
+          titleBlue: "Fundamentals",
+          Image: "./assests/img/seo.jpg",
+          description: "Understand modern marketing strategies and best practices.",
+          oldPrice: "₹30,000",
+          newPrice: "₹20,000",
+          redirectUrl: "./business-marketing/business_1_-add-to-cart.html"
+        },
+        {
+          titleOrange: "Social Media",
+          titleBlue: "Growth",
+          Image: "./assests/img/smm.jpg",
+          description: "Boost your brand's engagement across all social platforms.",
+          oldPrice: "₹35,000",
+          newPrice: "₹25,000",
+          redirectUrl: "./business-marketing/business_2_-add-to-cart.html"
+        },
+        {
+          titleOrange: "Business",
+          titleBlue: "Strategy 101",
+          Image: "./assests/img/performsnce.jpg",
+          description: "Explore proven strategies to build and scale a business.",
+          oldPrice: "₹40,000",
+          newPrice: "₹30,000",
+              redirectUrl: "./business-marketing/business_3_-add-to-cart.html"
+        }
+      ],
+      recorded: [
+        {
+          titleOrange: "Full Stack",
+          titleBlue: "Web Dev",
+          Image: "./assests/img/performsnce.jpg",
+          description: "Master front-end and back-end development with recorded sessions.",
+          oldPrice: "₹45,000",
+          newPrice: "₹35,000",
+         redirectUrl: "./recorded-course/record_1_-add-to-cart.html"
+        },
+        {
+          titleOrange: "UI/UX",
+          titleBlue: "Design Basics",
+          Image: "./assests/img/seo.jpg",
+          description: "Learn design principles to create user-friendly interfaces.",
+          oldPrice: "₹30,000",
+          newPrice: "₹22,000",
+          redirectUrl: "./recorded-course/record_2_-add-to-cart.html"
+        },
+        {
+          titleOrange: "Data Science",
+          titleBlue: "with Python",
+          Image: "./assests/img/smm.jpg",
+          description: "Dive into data analysis and machine learning techniques.",
+          oldPrice: "₹50,000",
+          newPrice: "₹40,000",
+          redirectUrl: "./recorded-course/record_3_-add-to-cart.html"
+        }
+      ],
+      upcoming: [
+        {
+          titleOrange: "Advanced SEO",
+          titleBlue: "Workshop",
+          Image: "./assests/img/smm.jpg",
+          description: "Sign up now for an in-depth workshop on advanced SEO techniques.",
+          oldPrice: "₹25,000",
+          newPrice: "₹20,000",
+           redirectUrl: "./upcoming-course/upcoming_1_-add-to-cart.html"
+        },
+        {
+          titleOrange: "Project Management",
+          titleBlue: "Basics",
+          Image: "./assests/img/performsnce.jpg",
+          description: "Learn effective planning and execution in project management.",
+          oldPrice: "₹28,000",
+          newPrice: "₹23,000",
+           redirectUrl: "./upcoming-course/upcoming_2_-add-to-cart.html"
+        },
+        {
+          titleOrange: "E-commerce",
+          titleBlue: "Essentials",
+          Image: "./assests/img/seo.jpg",
+          description: "Coming soon: Build and manage a successful online store.",
+          oldPrice: "₹32,000",
+          newPrice: "₹27,000",
+           redirectUrl: "./upcoming-course/upcoming_3_-add-to-cart.html"
+        }
+      ]
+    };
+
+    // Function to generate cards for a given category and container
+    function generateCards(category, containerId) {
+      const container = document.getElementById(containerId);
+      coursesData[category].forEach(course => {
+        let imageSrc = "";
+        // Use dummy image if course.Image exists
+        if (course.Image) {
+          imageSrc = course.Image;
+        } else if (course.videoUrl) {
+          imageSrc = "https://picsum.photos/400/250?random";
+        }
+        const cardHTML = `
+          <div class="col-md-4 col-sm-6 mb-4">
+            <a href="${course.redirectUrl}" class="text-decoration-none">
+              <div class="course-card">
+                <img src="${imageSrc}" alt="${course.titleOrange} ${course.titleBlue}" class="img-fluid w-100">
+                <div class="card-body">
+                  <h5 class="card-title">
+                    <span class="orange">${course.titleOrange}</span>
+                    <span class="blue">${course.titleBlue}</span>
+                  </h5>
+                  <p class="card-text">${course.description}</p>
+                  <div class="card-price">
+                    <span class="old-price">${course.oldPrice}</span>
+                    <span class="new-price">${course.newPrice}</span>
+                  </div>
+                </div>
+              </div>
+            </a>
+          </div>
+        `;
+        container.innerHTML += cardHTML;
+      });
+    }
+
+    // Generate the cards once the document is loaded
+    document.addEventListener("DOMContentLoaded", function () {
+      generateCards("business", "business-cards-container");
+      generateCards("recorded", "recorded-cards-container");
+      generateCards("upcoming", "upcoming-cards-container");
+    });
+  </script>
+
+  <!-- Intersection Observer to Animate Cards on Scroll (animation triggered only once) -->
+  <script>
+    const cards = document.querySelectorAll(".course-card");
+    const observer = new IntersectionObserver(
+      (entries, observer) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("animate");
+            observer.unobserve(entry.target); // Stop observing once animated
+          }
+        });
+      },
+      { threshold: 0.2 }
+    );
+    cards.forEach((card) => observer.observe(card));
+
+    /**************************************
+     * CART FUNCTIONS
+     **************************************/
+    
+    // Initialize global cart and login status
+    let cart = [];
+    let isLoggedIn = false;
+
+    function addToCart(course) {
+      cart.push(course);
+      renderCartItems();
+      showCartModal();
+    }
+
+    function showCartModal() {
+      const cartModal = new bootstrap.Modal(document.getElementById('cartModal'));
+      cartModal.show();
+    }
+
+    function renderCartItems() {
+      const cartItemsContainer = document.getElementById('cart-items-container');
+      const cartItemCount = document.getElementById('cart-item-count');
+      const cartTotalAmount = document.getElementById('cart-total-amount');
+      const cartBadge = document.getElementById('cartBadge');
+
+      cartItemsContainer.innerHTML = '';
+      let totalPrice = 0;
+      cart.forEach((item, index) => {
+        totalPrice += item.priceValue;
+        const cartItemDiv = document.createElement('div');
+        cartItemDiv.className = 'cart-item';
+        cartItemDiv.innerHTML = `
+          <div class="d-flex flex-column flex-md-row align-items-center justify-content-between">
+            <div class="d-flex align-items-center mb-2 mb-md-0">
+              <img src="${item.videoUrl}" alt="Course" class="img-fluid me-3" style="width: 80px; height: 50px; object-fit: cover;">
+              <div>
+                <div class="cart-item-title">${item.titleOrange} ${item.titleBlue}</div>
+                <div class="text-muted small">${item.instructor} | ${item.language} | ${item.validity}</div>
+                <div class="text-warning small">
+                  ${"&#9733;".repeat(Math.floor(item.rating))}
+                  <span class="text-dark">${item.rating} (${item.ratingCount} ratings)</span>
+                </div>
+              </div>
+            </div>
+            <div class="d-flex align-items-center">
+              <div class="cart-item-price me-3 fw-bold">₹${item.priceValue}</div>
+              <button class="btn btn-sm btn-danger remove-from-cart" data-index="${index}">
+                <i class="fas fa-trash-alt"></i> Remove
+              </button>
+            </div>
+          </div>
+        `;
+        cartItemsContainer.appendChild(cartItemDiv);
+      });
+
+      // Update counts and badge
+      cartItemCount.textContent = cart.length;
+      cartTotalAmount.textContent = '₹' + totalPrice.toFixed(2);
+      cartBadge.textContent = cart.length;
+
+      // Attach event listeners to remove buttons
+      document.querySelectorAll('.remove-from-cart').forEach(btn => {
+        btn.addEventListener('click', function() {
+          const idx = parseInt(this.dataset.index);
+          removeCartItem(idx);
+        });
+      });
+    }
+
+    function removeCartItem(index) {
+      cart.splice(index, 1);
+      renderCartItems();
+    }
+
+    document.getElementById('checkoutBtn').addEventListener('click', () => {
+      window.location.href = isLoggedIn ? "next-page.html" : "login.html";
+    });
+
+    /**************************************
+     * INITIALIZE PAGE
+     **************************************/
+    document.addEventListener("DOMContentLoaded", function () {
+      // If these functions exist, call them (otherwise skip)
+      if (typeof updateMainCourse === "function") {
+        updateMainCourse(courses[0]);
+      }
+      if (typeof generateRelatedCourses === "function") {
+        generateRelatedCourses();
+      }
+      document.querySelectorAll('.cart-icon-trigger').forEach(icon => {
+        icon.addEventListener('click', showCartModal);
+      });
+    });
+  </script>
+
+  <!-- Bootstrap JS (v5.3.3) -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

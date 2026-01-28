@@ -1,0 +1,169 @@
+:root {
+  --primary-color: #0d6efd;
+  --warning-color: #ffc107;
+  --success-color: #28a745;
+  --danger-color: #dc3545;
+  --bg-light: #f8f9fa;
+  --header-bg: linear-gradient(90deg, #ffffff, #f1f4f8);
+}
+
+body {
+  background-color: var(--bg-light);
+  font-family: "Poppins", sans-serif;
+}
+
+/* Category Dropdown Button */
+.dropdown .btn {
+  font-weight: 500;
+  letter-spacing: 0.5px;
+}
+
+/* Division Header */
+.division-header {
+  background: var(--header-bg);
+  padding: 0.75rem 1rem;
+  border-radius: 0.5rem;
+  margin-bottom: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.division-header h2 {
+  margin: 0;
+  font-size: 1.5rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.division-header a {
+  font-size: 0.9rem;
+  text-decoration: none;
+  font-weight: 500;
+  color: var(--primary-color);
+}
+
+.division-header a:hover {
+  text-decoration: underline;
+}
+
+hr.divider {
+  border-top: 2px solid #dee2e6;
+  margin-bottom: 2rem;
+}
+
+/* Gradient Title Classes */
+.orange {
+  font-weight: 600;
+  background: linear-gradient(0deg, #ff9300 10%, #ffc200 50%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.blue {
+  font-weight: 600;
+  background: linear-gradient(0deg, #5946ff 0%, #24c4ff 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+/* Course Card */
+.course-card {
+  border: none;
+  border-radius: 1rem;
+  overflow: hidden;
+  background-color: #fff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.course-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+}
+
+.course-card iframe {
+  width: 100%;
+  height: 180px;
+  border: 0;
+}
+
+.course-card .card-body {
+  padding: 1rem;
+}
+
+.course-card .card-body h5 {
+  font-size: 1.15rem;
+  margin-bottom: 0.5rem;
+}
+
+.course-card .card-body p {
+  font-size: 0.95rem;
+  color: #6c757d;
+}
+
+.card-price {
+  margin-top: 0.75rem;
+}
+
+.old-price {
+  font-size: 0.9rem;
+  color: var(--danger-color);
+  text-decoration: line-through;
+}
+
+.new-price {
+  font-size: 1.1rem;
+  color: var(--success-color);
+  font-weight: 600;
+  margin-left: 0.5rem;
+}
+
+.course-card {
+  transition: transform 0.3s ease;
+}
+
+a:hover .course-card {
+  transform: translateY(-5px);
+}
+
+a .card-title,
+a .card-text,
+a .card-price {
+  color: inherit;
+}
+
+/* Fade in Animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Apply the animation only once when a card enters view */
+.animate {
+  animation: fadeIn 0.5s ease-in-out forwards;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 767.98px) {
+  .division-header h2 {
+    font-size: 1.25rem;
+  }
+
+  .course-card iframe {
+    height: 200px;
+  }
+}
