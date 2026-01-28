@@ -6,10 +6,7 @@ This project focuses on a clean UI and basic front-end functionality.
 ---
 
 ## 🌐 Live Demo
-👉 https://your-hosted-link-here
-
-> Example:  
-> https://bharathcourse.netlify.app
+👉 https://bharath-course-selling.netlify.app/
 
 ---
 
@@ -30,3 +27,4 @@ This project focuses on a clean UI and basic front-end functionality.
 ---
 
 ## 📂 Project Structure
+
