@@ -1,24 +1,32 @@
-📘 Course Selling Website
+# Course Selling Website
 
-This is a simple course selling website built using HTML, CSS, and JavaScript.
-The project displays courses with a clean UI and basic interactivity for learning and practice purposes.
+A simple **course selling website** built using **HTML, CSS, and JavaScript**.  
+This project focuses on a clean UI and basic front-end functionality.
 
-🚀 Features
+---
 
-Responsive website layout
+## 🌐 Live Demo
+👉 https://your-hosted-link-here
 
-Course listing section
+> Example:  
+> https://bharathcourse.netlify.app
 
-Simple and clean UI
+---
 
-Built using pure HTML, CSS, and JavaScript
+## 🚀 Features
+- Simple and clean user interface  
+- Course listing layout  
+- Responsive design  
+- Pure HTML, CSS, and JavaScript  
+- Beginner-friendly project  
 
-Beginner-friendly project
+---
 
-🛠️ Technologies Used
+## 🛠️ Technologies Used
+- HTML5  
+- CSS3  
+- JavaScript  
 
-HTML5 – Structure
+---
 
-CSS3 – Styling & layout
-
-JavaScript – Interactivity
+## 📂 Project Structure
